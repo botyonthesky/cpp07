@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/02 10:27:44 by tmaillar          #+#    #+#              #
-#    Updated: 2024/07/02 11:24:12 by tmaillar         ###   ########.fr        #
+#    Created: 2024/07/02 11:24:17 by tmaillar          #+#    #+#              #
+#    Updated: 2024/07/02 11:46:45 by tmaillar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 			:= iter
+NAME 			:= array
 
 CXX				:= c++
 CXXFLAGS 		:= -std=c++98 -Wall -Wextra -Werror
