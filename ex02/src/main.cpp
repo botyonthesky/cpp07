@@ -6,12 +6,11 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:39:36 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/03 09:36:28 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/03 09:46:51 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 #include <cassert>
 #include <ctime>
 #include <cstdlib>

@@ -6,13 +6,12 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:49:36 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/02 10:55:38 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/03 09:45:09 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
 #include <iostream>
-#include <string>
+#include "iter.hpp"
 
 int main() 
 {
