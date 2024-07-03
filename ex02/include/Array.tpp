@@ -6,13 +6,11 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:24:54 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/03 08:54:11 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/03 09:23:09 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Array.hpp"
-#include <sstream>
-#include <cassert>
 
 template <typename T>
 Array<T>::Array() : _array(NULL), _size(0)
@@ -98,5 +96,5 @@ const char* Array<T>::IndexOutOfRange::what() const throw()
 template <typename T>
 unsigned int Array<T>::size()
 {
-    return _size;
+    return (_size);
 }

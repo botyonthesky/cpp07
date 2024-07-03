@@ -6,7 +6,7 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:39:36 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/03 08:43:00 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/03 09:36:28 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 void testDefault() 
 {
     Array<int> arr;
-    std::cout << "Test Default Constructor: ";
+    std::cout << "[ DEFAULT CONSTRUCTOR TEST ]" << std::endl;
     if (arr.size() == 0)
         std::cout << "PASSED\n";
     else
@@ -33,7 +33,7 @@ void testDefault()
 void testParameterized() 
 {
     Array<int> arr(5);
-    std::cout << "Test Parameterized Constructor: ";
+    std::cout << "[ CONSTRUCTOR TEST ]" << std::endl;
     if (arr.size() == 5)
         std::cout << "PASSED\n";
     else
@@ -44,7 +44,7 @@ void testCopy()
 {
     Array<int> original(5);
     Array<int> copy(original);
-    std::cout << "Test Copy Constructor: ";
+    std::cout << "[ COPY CONSTRUCTOR TEST ]" << std::endl;
     if (copy.size() == original.size()) 
         std::cout << "PASSED\n";
     else
@@ -55,7 +55,7 @@ void    testCopyAssignment()
 {
     Array<int> original(5);
     Array<int> copy = original;
-    std::cout << "Test Copy Assignment: ";
+    std::cout << "[ COPY ASSIGNMENT TEST ]" << std::endl;
     if (copy.size() == original.size())
         std::cout << "PASSED\n";
     else
@@ -64,6 +64,7 @@ void    testCopyAssignment()
 
 int   testSubject(void)
 {
+    std::cout << "[ SUBJECT TEST ]" << std::endl;
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -114,10 +115,10 @@ int   testSubject(void)
 
 int main() 
 {
-    // testDefault();
-    // testParameterized();
-    // testCopy();
-    // testCopyAssignment();
+    testDefault();
+    testParameterized();
+    testCopy();
+    testCopyAssignment();
     testSubject();
     return 0;
 }

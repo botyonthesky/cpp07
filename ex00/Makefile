@@ -6,14 +6,14 @@
 #    By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 09:01:42 by tmaillar          #+#    #+#              #
-#    Updated: 2024/07/02 09:22:29 by tmaillar         ###   ########.fr        #
+#    Updated: 2024/07/03 09:42:50 by tmaillar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 			:= aFewFunctions
 
 CXX				:= c++
-CXXFLAGS 		:= -std=c++98 -Wall -Wextra -Werror
+CXXFLAGS 		:= -std=c++98 -g -Wall -Wextra -Werror
 CPPFLAGS		+= -I./include
 CPPFLAGS		+= -MMD -MP -MF $(@:.o=.d)
 
