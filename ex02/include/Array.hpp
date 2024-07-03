@@ -6,7 +6,7 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:25:06 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/02 13:30:28 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/03 08:49:53 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,17 @@ class Array
         Array(unsigned int n);
         Array(const Array &src);
         Array& operator=(const Array &rhs);
-        Array& operator[](unsigned int n) const;
         ~Array();
 
+        class IndexOutOfRange : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
+        
+        T& operator[](unsigned int n);
         unsigned int size();
 };
-
 
 
 #endif

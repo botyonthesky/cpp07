@@ -6,14 +6,19 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:39:36 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/02 13:28:13 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/03 08:43:00 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <cassert>
+#include <ctime>
+#include <cstdlib>
 #include "../include/Array.hpp"
 #include "../include/Array.tpp"
+#define MAX_VAL 750
+
 
 void testDefault() 
 {
@@ -57,26 +62,55 @@ void    testCopyAssignment()
         std::cout << "FAILED\n";
 }
 
-void testOperator() 
+int   testSubject(void)
 {
-    Array<int> arr(5); 
-    std::stringstream buffer;
-    std::streambuf *prevCerr = std::cerr.rdbuf(buffer.rdbuf());
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    arr[2] = 10; 
-    assert(arr[2] == 10 && "Element at index 2 should be 10");
-
-    arr[6] = 20; 
-    std::string errMsg = buffer.str();
-    assert(errMsg.find("Index out of range") != std::string::npos 
-    && "Accessing out-of-range index did not produce expected error message");
-
-    std::cerr.rdbuf(prevCerr);
-
-    std::cout << "Test Array Access: PASSED\n";
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;
+    return (0);
 }
-
 
 int main() 
 {
@@ -84,6 +118,6 @@ int main()
     // testParameterized();
     // testCopy();
     // testCopyAssignment();
-    testOperator();
+    testSubject();
     return 0;
 }
