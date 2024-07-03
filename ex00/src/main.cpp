@@ -6,14 +6,12 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:02:18 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/02 09:59:10 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/03 09:44:13 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
 #include <iostream>
 #include "../include/Functions.hpp"
-
 
 int main()
 {
