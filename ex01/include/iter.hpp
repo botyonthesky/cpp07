@@ -6,25 +6,32 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:28:18 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/02 10:44:54 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:23:36 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITER_HPP
 #define ITER_HPP
 
-template<typename Type>
-void    iter(Type array[], int length, void funct(Type& element))
+template<typename T>
+void    iter(T array[], unsigned int length, void (*funct)(T &))
 {
-    int i;
-    i = 0;
-    while (i < length)
+    if (length == 0 || array == NULL || funct == NULL)
+        return;
+    for (unsigned int i = 0; i < length; i++)
     {
         funct(array[i]);
-        i++;
     }
 }
-
-
+template<typename T>
+void    iter(const T *array[], unsigned int length, void (*funct)(const T &))
+{
+    if (length == 0 || array == NULL || funct == NULL)
+        return;
+    for (unsigned int i = 0; i < length; i++)
+    {
+        funct(array[i]);
+    }
+}
 
 #endif

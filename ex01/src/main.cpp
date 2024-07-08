@@ -6,46 +6,112 @@
 /*   By: tmaillar <tmaillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:49:36 by tmaillar          #+#    #+#             */
-/*   Updated: 2024/07/03 09:45:09 by tmaillar         ###   ########.fr       */
+/*   Updated: 2024/07/05 11:22:56 by tmaillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "iter.hpp"
+#include "../include/iter.hpp"
 
-int main() 
+void    printConstInt(const int &num) 
 {
-    std::cout << "[ Test with int array ]" << std::endl;
-    int intArray[] = {1, 2, 3, 4, 5};
+    std::cout << num << " ";
+}
 
-    for (size_t i = 0; i < 5; ++i) 
-        intArray[i] += 1; 
+void    printInt(int &num) 
+{
+    std::cout << num << " ";
+}
 
-    for (int i = 0; i < 5; ++i) 
+void    printString(std::string &str)
+{
+    std::cout << str;
+}
+void    increment(int &num)
+{
+    num++;
+}
+
+void    stringTest(void)
+{
+    std::cout << "[ STRING TEST ]" << std::endl;
+    std::string arr[] = {"You ", "don't ", "talk ", "about ", "Fight Club."};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    std::cout << "for loop ->" << std::endl;
+    for (int i = 0; i < size; i++)
     {
-        if (intArray[i] != (i + 2)) 
-        { 
-            std::cerr << "Test Case 1 Failed at index " << i << std::endl;
-            return 1;
-        }
-        else
-            std::cout << "Test Case 1 Passed, intArray : " << intArray[i] << std::endl;
+        std::cout << arr[i];
     }
     std::cout << std::endl;
-    std::cout << "[ Test with string array ]" << std::endl;
-    std::string strArray[] = {"hello", "world"};
-
-    for (size_t i = 0; i < 2; ++i) 
-        strArray[i] += '?';
-        
-    if (strArray[0] != "hello?" || strArray[1] != "world?") 
-    {
-        std::cerr << "Test Case 2 Failed" << std::endl;
-        return 1;
-    }
-    else
-        std::cout << "Test Case 2 Passed" << std::endl;
+    std::cout << "function template iter ->" << std::endl;
+    ::iter(arr, size, printString);
     std::cout << std::endl;
-    std::cout << "All tests passed." << std::endl;
+}
+
+void    constIntTest(void)
+{
+    std::cout << "[ CONST INT TEST ]" << std::endl;
+    const int tab[] = {0, 1, 2, 3, 4};
+    int size = sizeof(tab) / sizeof(tab[0]);
+    std::cout << "for loop ->" << std::endl;
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << tab[i] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "function template iter ->" << std::endl;
+    ::iter(tab, 5, printConstInt);
+    std::cout << std::endl;
+}
+
+void    intTest(void)
+{
+    std::cout << "[ INT TEST ]" << std::endl;
+    int tab[] = {5, 6, 7, 8, 9};
+    int size = sizeof(tab) / sizeof(tab[0]);
+    std::cout << "for loop ->" << std::endl;
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << tab[i] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << "function template iter ->" << std::endl;
+    ::iter(tab, 5, printInt);
+    std::cout << std::endl;
+}
+
+void    incrementTest(void)
+{
+    std::cout << "[ INCREMENT TEST ]" << std::endl;
+    int tab[] = {0, 1, 2, 3, 4};
+    int size = sizeof(tab) / sizeof(tab[0]);
+    std::cout << "for loop ->" << std::endl;
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << tab[i] << " ";
+    }
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << "increment each element" << std::endl;
+    ::iter(tab, size, increment);
+    std::cout << std::endl;
+    std::cout << "for loop after increment ->" << std::endl;\
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << tab[i] << " ";
+    }
+    std::cout << std::endl;
+
+}
+
+int main(void)
+{
+    stringTest();
+    std::cout << std::endl;
+    constIntTest();
+    std::cout << std::endl;
+    intTest();   
+    std::cout << std::endl;
+    incrementTest();
     return 0;
 }

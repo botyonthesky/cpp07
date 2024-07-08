@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.tpp": "cpp",
+        "iostream": "cpp",
+        "random": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "utility": "cpp"
+    }
+}
